@@ -1,0 +1,13 @@
+---
+description: Require user review of any file or code deletions before they happen
+alwaysApply: true
+---
+
+# Review deletions
+
+Do not delete files, tests, or substantial code until the user has reviewed the planned deletions.
+
+- Before deleting, list every path (and any related config/plugin/mainClass removals).
+- Wait for explicit confirmation before deleting or using restore/discard on those paths.
+- After a confirmed deletion, summarize what was removed so it can be reviewed in git (`D` / diff).
+- Do not treat "clean up" or "not required" as blanket permission to delete unrelated files.
