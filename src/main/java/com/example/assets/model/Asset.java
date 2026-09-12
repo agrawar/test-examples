@@ -18,6 +18,7 @@ public record Asset(
     public Asset {
         assetId = required("assetId", assetId);
         name = required("name", name);
+        userId = required("userId", userId);
         type = Objects.requireNonNull(type, "type is required");
         timestamp = timestamp == null ? Instant.now() : timestamp;
     }

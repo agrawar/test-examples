@@ -39,4 +39,20 @@ class AssetTest {
         assertThrows(NullPointerException.class,
                 () -> new Asset("asset-3", "banner.svg", "user-9", null, Instant.now()));
     }
+
+    @Test
+    void requiresUserIdWhenNull() {
+        IllegalArgumentException error = assertThrows(IllegalArgumentException.class,
+                () -> new Asset("asset-3", "banner.svg", null, AssetType.GRAPHIC, Instant.now()));
+
+        assertEquals("userId is required", error.getMessage());
+    }
+
+    @Test
+    void requiresUserIdWhenBlank() {
+        IllegalArgumentException error = assertThrows(IllegalArgumentException.class,
+                () -> new Asset("asset-3", "banner.svg", " ", AssetType.GRAPHIC, Instant.now()));
+
+        assertEquals("userId is required", error.getMessage());
+    }
 }
